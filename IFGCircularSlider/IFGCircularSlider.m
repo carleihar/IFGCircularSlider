@@ -165,6 +165,7 @@ static const CGFloat kFitFrameRadius = -1.0;
         [self sendActionsForControlEvents:UIControlEventValueChanged];
         self.processControlEvent = NO;
     }
+    [self setNeedsDisplay];
 }
 
 - (void)setAngleFromNorth:(CGFloat)angleFromNorth {
