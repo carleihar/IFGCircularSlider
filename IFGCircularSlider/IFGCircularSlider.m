@@ -162,7 +162,7 @@ static const CGFloat kFitFrameRadius = -1.0;
     self.angleFromNorth = (currentValue * self.coverage) / (self.maximumValue - self.minimumValue);
     if (!self.processControlEvent) {
         self.processControlEvent = YES;
-        [self sendActionsForControlEvents:UIControlEventValueChanged];
+//        [self sendActionsForControlEvents:UIControlEventValueChanged];
         self.processControlEvent = NO;
     }
     [self setNeedsDisplay];
