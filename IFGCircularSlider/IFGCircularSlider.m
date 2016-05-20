@@ -305,13 +305,17 @@ static const CGFloat kFitFrameRadius = -1.0;
     }
 }
 
+/** Updated by carleihar 5/20/16 to reflect a point being onlin inside the line,
+ and not inside the smaller "open" part of the circle **/
 - (BOOL)pointInsideCircle:(CGPoint)point withEvent:(UIEvent *)event {
     CGPoint p1 = [self centerPoint];
     CGPoint p2 = point;
     CGFloat xDist = (p2.x - p1.x);
     CGFloat yDist = (p2.y - p1.y);
     double distance = sqrt((xDist * xDist) + (yDist * yDist));
-    return distance < self.radius + self.lineWidth * 0.5;
+    bool d1 = distance < self.radius + self.lineWidth * 0.5;
+    bool d2 = distance > self.radius - self.lineWidth * 0.5;
+    return d1 && d2;
 }
 
 - (BOOL)pointInsideHandle:(CGPoint)point withEvent:(UIEvent *)event {
